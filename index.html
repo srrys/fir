@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hi</title>
+	<style>
+		body {
+			background-color: white;
+			font-family: "Courier New";
+		}
+		@keyframes larp {
+			0% {opacity: 0.0; transform: rotate(180deg)}
+			100% {opacity: 1.0; rotate(0deg)}
+		}
+		@keyframes larp2 {
+			0% {opacity: 0.0; }
+			100% {opacity: 1.0;}
+		}
+		.signinbar {
+			border-radius: 15px;
+			display: none;
+			width: 100px;
+			background-color: #FF7F7F;
+			height: 250px;
+		}
+		hr {
+			width: 100%
+			border: 1px solid black;
+		}
+		input {
+			background-color: lightgrey;
+			border-radius: 10px;
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<span style="width: 100%; height: 500px; display: grid; place-items: center;">
+		<div style="background-color: #FF7F7F; border-radius: 10px; width: 80px; height: 35px; display: grid; place-items: center; animation: larp 0.5s;" onclick="awesome()">
+			<b>Sign In</b>
+		</div>
+		<div class="signinbar" id="goonbot" style=" animation: larp2 0.5s">
+			<div style="width:96px; height: 30px; background-color: #FF7F7F; border-radius: 15px; display: grid; place-items: center;"><b>Sign-In</b></div>
+			<div style="display: grid; place-items: center;">
+				<input id="usr" style="width: 85px;" placeholder="Username"></input>
+				<hr style="width: 98px;">
+				<input id="pswd" type="password" style="width: 85px;" placeholder="Password"></input>
+				<hr>
+				<button style="background-color:#FF7F7F; border: 0px;" onclick="sn()"><b style="color: white">Sign in</b></button>
+			</div>
+		</div>
+	</span>
+	<script>
+		let ausers = ["john153", "1eddy2", "felix9", "srrys"]
+		const apasses = '{"john153": "2WX%62", "1eddy2": "3WX%62", "felix9": "4WX%62", "srrys": "78931024578WGHSUI123nnnnasd873&31ehs7a87"}';
+		const getP = JSON.parse(apasses);
+		function awesome() {
+			document.getElementById("goonbot").style.display = "block";
+		}
+		function sn() {
+			let username = document.getElementById("usr").value;
+			let password = document.getElementById("pswd").value;
+			if (ausers.includes(username) && getP[username] === password) {
+				localStorage.setItem("username", username);
+				localStorage.setItem("loggedIn", "true");
+				alert(`signed in as ${username}`);
+			}
+			else {
+				console.log("typeshi")
+			}
+		}
+	</script>
+</body>
+</html>
