@@ -57,7 +57,7 @@
 	</span>
 	<script>
 		let ausers = ["john153", "1eddy2", "felix9", "srrys"]
-		const apasses = await(await(fetch('./data.json')).json());
+		const apasses = fetch('./data.json').json();
 		const getP = JSON.parse(apasses);
 		function awesome() {
 			document.getElementById("goonbot").style.display = "block";
