@@ -34,6 +34,12 @@
 	</style>
 </head>
 <body>
+	<div style=" background-color: #FF7F7F; width: 100%; height: 200px;">
+		<span style="display: grid; place-items: center;">
+			<h1>Test Website!</h1>
+		</span>
+		<p>Signed In As: <b id="sndus"></b></p>
+	</div>
 	<span style="width: 100%; height: 500px; display: grid; place-items: center;">
 		<div style="background-color: #FF7F7F; border-radius: 10px; width: 80px; height: 35px; display: grid; place-items: center; animation: larp 0.5s;" onclick="awesome()">
 			<b>Sign In</b>
@@ -63,6 +69,7 @@
 				localStorage.setItem("username", username);
 				localStorage.setItem("loggedIn", "true");
 				alert(`signed in as ${username}`);
+				document.getElementById("sndus").innerHTML = username;
 			}
 			else {
 				console.log("typeshi")
