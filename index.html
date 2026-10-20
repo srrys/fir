@@ -57,7 +57,7 @@
 	</span>
 	<script>
 		let ausers = ["john153", "1eddy2", "felix9", "srrys"]
-		const apasses = '{"john153": "2WX%62", "1eddy2": "3WX%62", "felix9": "4WX%62", "srrys": "78931024578WGHSUI123nnnnasd873&31ehs7a87"}';
+		const apasses = await (await fetch('./data.json')).json();
 		const getP = JSON.parse(apasses);
 		function awesome() {
 			document.getElementById("goonbot").style.display = "block";
@@ -72,7 +72,7 @@
 				document.getElementById("sndus").innerHTML = username;
 			}
 			else {
-				console.log("typeshi")
+				console.log("typeshi");
 			}
 		}
 	</script>
